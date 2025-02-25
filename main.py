@@ -26,6 +26,11 @@ graph_config = {
     'color': 'sora'
 }
 
+headers = {
+    'X-USER-TOKEN': API_KEY
+}
+
 graph_endpoint = 'https://pixe.la/v1/users/dolan/graphs'
 
-response = requests.post(url=graph_endpoint, json=graph_config)
+response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+print(response.text)
