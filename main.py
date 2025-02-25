@@ -37,8 +37,7 @@ graph_endpoint = 'https://pixe.la/v1/users/dolan/graphs'
 # print(response.text)
 
 now = datetime.now()
-date = str(now.date())
-formatted_date = date.replace('-','')
+formatted_date = now.strftime('%Y%m%d')
 
 pixel_config = {
     'date': formatted_date,
