@@ -56,4 +56,9 @@ update_pixel_config = {
 
 update_endpoint = f'https://pixe.la/v1/users/dolan/graphs/graph1/{formatted_date}'
 
-response = requests.put(url=update_endpoint, json=update_pixel_config, headers=headers)
+# response = requests.put(url=update_endpoint, json=update_pixel_config, headers=headers)
+
+
+delete_endpoint = f'https://pixe.la/v1/users/dolan/graphs/graph1/{formatted_date}'
+
+response = requests.delete(url=delete_endpoint, headers=headers)
