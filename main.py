@@ -1,3 +1,5 @@
+from http.client import responses
+
 import requests
 from charset_normalizer.api import explain_handler
 from dotenv import load_dotenv
@@ -46,5 +48,12 @@ pixel_config = {
 
 pixel_endpoint = 'https://pixe.la/v1/users/dolan/graphs/graph1'
 
-response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+# response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
 
+update_pixel_config = {
+    'quantity': '10'
+}
+
+update_endpoint = f'https://pixe.la/v1/users/dolan/graphs/graph1/{formatted_date}'
+
+response = requests.put(url=update_endpoint, json=update_pixel_config, headers=headers)
