@@ -1,7 +1,8 @@
-import dotenv
 import requests
+from charset_normalizer.api import explain_handler
 from dotenv import load_dotenv
 import os
+from datetime import datetime
 
 load_dotenv()
 
@@ -32,5 +33,19 @@ headers = {
 
 graph_endpoint = 'https://pixe.la/v1/users/dolan/graphs'
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-print(response.text)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response.text)
+
+now = datetime.now()
+date = str(now.date())
+formatted_date = date.replace('-','')
+
+pixel_config = {
+    'date': formatted_date,
+    'quantity': '1',
+}
+
+pixel_endpoint = 'https://pixe.la/v1/users/dolan/graphs/graph1'
+
+response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+
